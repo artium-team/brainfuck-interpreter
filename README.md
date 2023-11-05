@@ -4,6 +4,8 @@ This repository contains a simple Brainfuck interpreter written in Python. Brain
 # Usage
 To run the interpreter, simply execute the following command:
 
+```
 python bf.py <program.bf>
+```
 
 where program.bf is the Brainfuck program you want to execute.
