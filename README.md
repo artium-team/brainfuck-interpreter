@@ -14,5 +14,3 @@ To run the interpreter, simply execute the following command:
 ```
 ./main program.bf
 ```
-
-where program.bf is the Brainfuck program you want to execute.
