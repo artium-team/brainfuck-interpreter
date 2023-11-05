@@ -1,11 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define MEMORY_SIZE 30000
 
-int main() {
+char* readFile(char* filename) {
+    FILE* file = fopen(filename,"r");
+    if(file == NULL) {
+        return NULL;
+    }
+    fseek(file, 0, SEEK_END);
+    long int size = ftell(file);
+    rewind(file);
+    char* content = calloc(size + 1, 1);
+    fread(content,1,size,file);
+    return content;
+}
+
+int main(int argc, char *argv[]) {
     char memory[MEMORY_SIZE] = {0};
     char *ptr = memory;
-    char code[] = "++++++++++[>++++++++++<-]>.";
+
+    if (argc != 2) {
+        printf ("Wrong input!");
+        return 0;
+    }
+    char *code = readFile(argv[1]);
 
     for (int i = 0; code[i]; i++) {
         switch (code[i]) {
